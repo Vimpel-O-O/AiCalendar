@@ -1,8 +1,16 @@
 from dotenv import load_dotenv
 import os
 import json
+import sys
 
-load_dotenv()  # This loads variables from .env into environment
+# Determine base path (where .env resides)
+if getattr(sys, 'frozen', False):  # Running as PyInstaller bundle
+    base_path = sys._MEIPASS
+else:
+    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+dotenv_path = os.path.join(base_path, '.env')
+load_dotenv(dotenv_path=dotenv_path)  # This loads variables from .env into environment
 
 CHATGPT_API_KEY = os.getenv("CHATGPT_API_KEY")
 
