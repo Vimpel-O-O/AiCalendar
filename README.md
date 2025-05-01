@@ -1,12 +1,14 @@
 # AI Calendar Assistant 📅
 
-An intelligent desktop assistant that helps you generate and schedule calendar events using natural language prompts. It integrates ChatGPT for interpreting text and Google Calendar APIs for event creation. Comes with a simple GUI for user interaction.
+A useful desktop assistant application that helps you generate and schedule calendar events using natural language prompts. It integrates ChatGPT for interpreting text and Google Calendar APIs for event creation. Comes with a simple GUI for user interaction.
+
+With this program, I was able to save a lot of time keeping my calendar up to date and boost my productivity by reducing recurring manual work and giving more attention to the schedule structure itself.
 
 ---
 
 ## 🚀 Features
 
-- 🗨️ Accepts natural language input (e.g., "Math class next Friday at 1 PM")
+- 🗨️ Accepts natural language input (e.g., "Book a meeting with Sarah next Monday at 10 AM")
 - 🤖 Uses ChatGPT to parse and extract event details
 - 📅 Automatically creates events in your Google Calendar
 - 🖥️ Lightweight desktop GUI interface
@@ -48,7 +50,7 @@ An intelligent desktop assistant that helps you generate and schedule calendar e
     - GOOGLE_CREDENTIALS & GOOGLE_USER_TOKEN ([developers.google.com/workspace/calendar/api/quickstart/python](https://developers.google.com/workspace/calendar/api/quickstart/python))
     
     - CALENDAR_ID
-        - Go to calendar settings in Google Calendar and scroll to Calendar ID
+        - Go to calendar settings in Google Calendar and scroll to Calendar ID. In my case I used 4 calendar types for personal use - "SWE related", "College related", "Work related" and "Other". (Edit "# Set the event type" section code in main.py, line 66, accordingly)
 
 5. **Create .env and add API keys**
     ```bash
@@ -66,6 +68,13 @@ An intelligent desktop assistant that helps you generate and schedule calendar e
 ## 🎥 Demo
 
 [![Watch the video](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
+
+## 💡 Use cases to try
+- 🎓 "Math class next Friday at 1 PM"
+- 💼 "Standup meeting at work from 9AM to 10:30AM on Tuesday"
+- 👨‍💻 "Do leetcode practice at 6 to 8PM daily"
+- 🏋️ "Workout session every Friday 5 to 6PM"
+- 👥 "Weekly Computer Science club meetup at 3-4PM on Wednesday"
 
 
 
