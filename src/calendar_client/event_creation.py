@@ -18,10 +18,16 @@ class CalendarClient:
         os.execv(sys.executable, [sys.executable] + sys.argv)
 
     def get_credentials(self):
-        # get saved google account credentials from token.json file
+        # auth using GOOGLE_USER_TOKEN and get credentials
         creds = Credentials.from_authorized_user_info(GOOGLE_USER_TOKEN, self.SCOPES)
-        
-        if creds.expired:
+        return creds
+
+    def create_event(self, calID, event):
+        service = build('calendar', 'v3', credentials=self.get_credentials())
+        try:
+            event = service.events().insert(calendarId=calID, body=event).execute()
+
+        except google.auth.exceptions.RefreshError:
             # User goes through browser login
             flow = InstalledAppFlow.from_client_config(
                 GOOGLE_CREDENTIALS,
@@ -31,18 +37,7 @@ class CalendarClient:
 
             # Save new token to .env
             set_key(".env", "GOOGLE_USER_TOKEN", creds.to_json())
-            self.restart_program()
-        
-        return creds
-
-    def create_event(self, calID, event):
-        service = build('calendar', 'v3', credentials=self.get_credentials())
-        try:
-            event = service.events().insert(calendarId=calID, body=event).execute()
-        except google.auth.exceptions.RefreshError:
-            creds = Credentials.from_authorized_user_info(GOOGLE_USER_TOKEN, self.SCOPES)
-            if creds and creds.expired and creds.refresh_token:
-                creds.refresh(Request())
+            service = build('calendar', 'v3', credentials=self.get_credentials())
             event = service.events().insert(calendarId=calID, body=event).execute()
         
         return "Event succesfully created: " + event.get('htmlLink')
