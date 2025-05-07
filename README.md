@@ -65,6 +65,17 @@ With this program, I was able to save a lot of time keeping my calendar up to da
     python run.py
     ```
 
+7. **🎁 Bonus: Creating program executable**
+    - On macOS/Linux:
+        ```
+        pyinstaller --onefile --name AI_Calendar --add-data "../.env:." ../src/main.py
+        ```
+    - On Windows:
+        ```
+        pyinstaller --onefile --name AI_Calendar --add-data "..\\.env;." ../src/main.py
+        ```
+    The executable will appear in the dist/ directory
+
 ## 🎥 Demo
 
 [![Watch the video](https://img.youtube.com/vi/Iq5E-pjKnmw/0.jpg)](https://www.youtube.com/watch?v=Iq5E-pjKnmw)
