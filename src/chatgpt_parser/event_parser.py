@@ -21,7 +21,7 @@ class EventParser():
                 "- **IMPORTANT: summary, startdatetime, and enddatetime are ALWAYS REQUIRED. They can NEVER be NA.**\n" \
                 "- For all other fields, if missing, use NA" \
                 "- Description can be putted with text only when description keyword was said before that" \
-                "- One of event types is required: SWE, Work, College. SWE key word contains prep to software engineering role. " \
+                "- One of event types is required: SWE, Work, College, Important. SWE key word contains prep to software engineering role." \
                 "If event type is not related to any of those use Other\n" \
                 "- Output must be a single line with no quotes, no extra spaces, fields separated by |\n" \
                 "- No commentary or explanation\n" \

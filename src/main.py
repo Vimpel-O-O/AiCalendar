@@ -4,17 +4,21 @@ from app_gui import gui
 import speech_recognition as sr
 import tkinter as tk
 from googleapiclient.errors import HttpError
-from config import SWE_CALENDAR_ID, WORK_CALENDAR_ID, COLLEGE_CALENDAR_ID, OTHER_CALENDAR_ID
+from config import SWE_CALENDAR_ID, WORK_CALENDAR_ID, COLLEGE_CALENDAR_ID, IMPORTANT_CALENDAR_ID, OTHER_CALENDAR_ID
 
 # Speech recognition setup
 recognizer = sr.Recognizer()
 mic = sr.Microphone()
+# Adjust pause threshold to allow longer pauses
+recognizer.pause_threshold = 2  # seconds
+# Filter out background noise setting
+recognizer.energy_threshold = 400
 
 # Event creation audio request flow
 def program_flow():
     # Audio request setup
     with mic as source:
-        audio = recognizer.listen(source)
+        audio = recognizer.listen(source, timeout=5, phrase_time_limit=12)
     try:
         # Recognize the audio using Google Web Speech API
         request = recognizer.recognize_google(audio, language="en-US")
@@ -70,6 +74,8 @@ def program_flow():
         calID = WORK_CALENDAR_ID
     elif event_info[6] == "College":
         calID = COLLEGE_CALENDAR_ID
+    elif event_info[6] == "Important":
+        calID = IMPORTANT_CALENDAR_ID
     else:
         calID = OTHER_CALENDAR_ID
 
