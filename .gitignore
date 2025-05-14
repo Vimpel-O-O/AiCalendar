@@ -2,5 +2,8 @@
 __pycache__/
 *.pyc
 venv/
-executable/
+executable/build/
+executable/dist/
+executable/.DS_Store
+executable/AI_Calendar.spec
 .DS_Store
