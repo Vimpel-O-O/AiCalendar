@@ -75,8 +75,14 @@ With this program, I was able to save a lot of time keeping my calendar up to da
         ```
         pyinstaller --onefile --windowed --name AI_Calendar --icon=icon.ico --add-data "../.env;." ../src/main.py
         ```
-    The app executable will appear in the `dist/` directory
-
+    - The app executable will appear in the `dist/` directory
+    
+    - For macOS use terminal to run
+        ```
+        open AI_Calendar
+        ```
+        (cannot run through .app due to no microphone access - app certificate needed)
+        
 ## 🎥 Demo
 
 [![Watch the video](https://img.youtube.com/vi/Iq5E-pjKnmw/0.jpg)](https://www.youtube.com/watch?v=Iq5E-pjKnmw)
